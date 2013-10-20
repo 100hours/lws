@@ -24,6 +24,8 @@ gem 'ember-rails'
 gem 'ember-source'
 gem 'haml-rails'
 
+gem 'bootstrap-sass'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

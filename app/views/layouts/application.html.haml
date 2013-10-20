@@ -5,9 +5,18 @@
       = page_title
     %meta{ charset: "utf-8" }
     %meta{ name: "ROBOTS", content: "NOODP" }
+    %meta{ content: (content_for?(:page_description) ? yield(:page_description) : "Live Writing Series"), name: "description"}
     = stylesheet_link_tag :application, media: "all"
     = csrf_meta_tags
   %body{ class: body_class }
-    = render 'flashes'
-    = yield
+    %header.navbar.navbar-fixed-top
+      %nav.navbar-inner
+        .container
+          = render 'layouts/navigation'
+    #main{:role => "main"}
+      .container
+        = render 'flashes'
+        .content
+          = yield
+          %footer
     = render 'javascript'

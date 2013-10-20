@@ -15,6 +15,7 @@
 //= require handlebars
 //= require ember-canary
 //= require ember-data-canary
+//= require bootstrap
 //= require_self
 //= require app
 
