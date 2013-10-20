@@ -1,3 +1,3 @@
 App.DocumentsRoute = Ember.Route.extend
   model: ->
-    @get('store').findAll('document')
+    this.store.findAll('document')
