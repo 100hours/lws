@@ -1,0 +1,26 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th Title
+      %th Words
+      %th Last Updated
+      %th
+
+  %tbody
+    - @documents.each do |document|
+      %tr
+        %td
+          = link_to edit_writeroom_document_path(document) do
+            %i.icon-pencil
+            = raw title_or_default(document.title)
+        %td= document.word_count
+        %td= time_tag document.updated_at, format: :short
+        %td
+          = link_to writeroom_document_path(document), method: :delete, data: { confirm: 'Are you sure?' } do
+            %i.icon-trash
+
+- content_for :navigation do
+  %li
+    = link_to new_writeroom_document_path do
+      %i.icon-file
+      New Document

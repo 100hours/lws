@@ -6,4 +6,7 @@ Lws::Application.routes.draw do
   end
 
   root to: "high_voltage/pages#show", id: "home"
+  namespace :writeroom do
+    resources :documents
+  end
 end
