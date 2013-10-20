@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require handlebars
-//= require ember
-//= require ember-data
+//= require ember-canary
+//= require ember-data-canary
 //= require_self
 //= require app
 
