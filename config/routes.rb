@@ -4,4 +4,6 @@ Lws::Application.routes.draw do
       resources :documents, only: :index
     end
   end
+
+  root to: "high_voltage/pages#show", id: "home"
 end
