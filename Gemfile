@@ -22,7 +22,6 @@ gem 'unicorn'
 
 gem 'ember-rails'
 gem 'ember-source'
-gem 'emblem-rails'
 gem 'haml-rails'
 
 group :development do
