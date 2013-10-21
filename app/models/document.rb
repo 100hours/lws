@@ -2,6 +2,6 @@ class Document < ActiveRecord::Base
   belongs_to :writer
 
   def word_count
-    body.split.size
+    body.blank? ? 0 : body.split.size
   end
 end

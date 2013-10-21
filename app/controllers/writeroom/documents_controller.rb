@@ -2,7 +2,8 @@ class Writeroom::DocumentsController < ApplicationController
   http_basic_authenticate_with name: ENV['WRITEROOM_USERNAME'], password: ENV['WRITEROOM_PASSWORD']
   layout "write_room"
 
-  respond_to :html, :json
+  respond_to :html
+  respond_to :json, only: [:update]
 
   def index
     @documents = Document.all
@@ -11,9 +12,7 @@ class Writeroom::DocumentsController < ApplicationController
   end
 
   def show
-    @document = Document.find(params[:id])
-
-    respond_with @document
+    redirect_to action: "edit"
   end
 
   def new
@@ -32,7 +31,7 @@ class Writeroom::DocumentsController < ApplicationController
     @document = Document.new(document_params)
     flash[:notice] = "The new document was successfully created" if @document.save
 
-    respond_with @document
+    redirect_to edit_writeroom_document_path(@document)
   end
 
   def update
