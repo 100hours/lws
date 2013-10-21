@@ -10,4 +10,7 @@ Lws::Application.routes.draw do
     match "/", to: "dashboard#show", as: "writeroom", via: :get
     resources :documents
   end
+
+  resources :events, only: [:index]
+  resources :writers, only: [:index, :show]
 end
