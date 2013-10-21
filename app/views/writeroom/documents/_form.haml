@@ -7,31 +7,20 @@
           %li= msg
 
   .row
-    .span6
-      .control-group
-        = f.label :title, class: "control-label"
-        .controls
-          = f.text_field :title, placeholder: "Untitled"
-          - unless @document.new_record?
-            #connection-status.label
-              Initialising...
-    .span6
+    .span9
+      = f.text_field :title, class: "span9",  placeholder: "Untitled - story title goes here"
+    .span3
       - unless @document.new_record?
-        .control-group
-          = f.label :word_count, class: "control-label"
-          .controls
-            = f.number_field :word_count, value: @document.word_count, class: "uneditable-input input", readonly: "readonly"
-  .row
+        #connection-status.label
+          Initialising...
+        #word_count.badge
+          = pluralize @document.word_count, 'word', 'words'
+  .row{ style: "margin-top: 20px" }
     .span12
       - if @document.new_record?
-        .control-group
-          .controls
-            = f.submit class: "btn"
+        = f.submit class: "btn"
       - else
-        .control-group
-          = f.label :body, class: "control-label"
-          .controls
-            = f.text_area :body, id: 'redactor'
+        = f.text_area :body, id: 'redactor'
 
 - content_for :navigation do
   %li

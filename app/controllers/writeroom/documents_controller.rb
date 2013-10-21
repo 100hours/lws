@@ -29,7 +29,7 @@ class Writeroom::DocumentsController < ApplicationController
   end
 
   def create
-    @document = Document.new(params[:document])
+    @document = Document.new(document_params)
     flash[:notice] = "The new document was successfully created" if @document.save
 
     respond_with @document
@@ -38,7 +38,7 @@ class Writeroom::DocumentsController < ApplicationController
   def update
     @document = Document.find(params[:id])
 
-    @document.update(params[:document])
+    @document.update(document_params)
     respond_with @document
   end
 
@@ -50,5 +50,13 @@ class Writeroom::DocumentsController < ApplicationController
       format.html { redirect_to action: "index" }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def document_params
+    params
+      .require(:document)
+      .permit(:title, :body)
   end
 end
