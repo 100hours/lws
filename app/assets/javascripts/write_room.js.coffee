@@ -1,3 +1,10 @@
+#= require jquery
+#= require jquery_ujs
+#= require jquery.browser
+#= require bootstrap
+#= require_self
+#= require redactor
+
 class Editor
   dirty: false
   snapshot:
@@ -5,9 +12,11 @@ class Editor
     title: false
 
   constructor: ->
+    console.log("Initialising editor")
     @takeSnapshot()
 
   takeSnapshot: ->
+    console.log("Taking snapshot of current text")
     @snapshot.body = @currentBody()
     @snapshot.title = @currentTitle()
 
@@ -24,7 +33,8 @@ class Editor
     $('#redactor').getText().match(/\w+/g)?.length;
 
   updateWordCount: ->
-    $('#document_word_count').val(@countWords(@snapshot.body))
+    count = @countWords(@snapshot.body)
+    $('#word_count').text("#{count} #{if count == 1 then "word" else "words"}")
 
   updateConnectionStatus: (text, label) ->
     $('#connection-status').attr("class", "label").html(text)
@@ -38,7 +48,7 @@ class Editor
       @updateWordCount()
       @_save()
 
- _save: ->
+  _save: ->
     @takeSnapshot()
     form = $('form')
     @updateConnectionStatus("Saving...")
@@ -55,8 +65,19 @@ class Editor
         @updateConnectionStatus("Failed to save", "warning")
         @dirty = false
 
-App.register 'documents/edit', (data) ->
+@WriteRoom = {}
+
+WriteRoom.register = (label, callback) ->
+  WriteRoom.fragments = WriteRoom.fragments || {}
+  WriteRoom.fragments[label] = callback
+
+WriteRoom.require = (label, data) ->
+  WriteRoom.fragments[label].call(window,data)
+
+WriteRoom.register 'documents/edit', (data) ->
+  console.log("Attaching redactor to view")
   $('#redactor').redactor()
+  console.log("Initialising Editor instance")
 
   editor = new Editor
 

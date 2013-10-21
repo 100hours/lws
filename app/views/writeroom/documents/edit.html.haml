@@ -1,5 +1,5 @@
 = render 'form'
 
-- content_for :end_javascript do
+- content_for :javascript do
   :javascript
-    App.require('documents/edit', {})
+    WriteRoom.require('documents/edit', {});

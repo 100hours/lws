@@ -1,3 +1,3 @@
-App.DocumentsRoute = Ember.Route.extend
+LiveReader.DocumentsRoute = Ember.Route.extend
   model: ->
     this.store.findAll('document')
