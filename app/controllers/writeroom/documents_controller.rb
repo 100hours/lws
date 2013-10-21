@@ -1,6 +1,4 @@
-class Writeroom::DocumentsController < ApplicationController
-  http_basic_authenticate_with name: ENV['WRITEROOM_USERNAME'], password: ENV['WRITEROOM_PASSWORD']
-  layout "write_room"
+class Writeroom::DocumentsController < WriteroomController
 
   respond_to :html
   respond_to :json, only: [:update]
