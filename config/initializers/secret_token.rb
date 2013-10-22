@@ -9,4 +9,5 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Lws::Application.config.secret_key_base = ENV['SECRET_TOKEN'] || raise("no SECRET_TOKEN variable found in your environment.")
+raise("no SECRET_TOKEN variable found in your environment.") if (Rails.env.development? && ENV['SECRET_TOKEN'].nil?)
+Lws::Application.config.secret_key_base = ENV['SECRET_TOKEN']
