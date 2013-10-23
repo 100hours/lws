@@ -1,10 +1,11 @@
 = link_to "Live Writing Series", root_path, :class => 'brand'
 %ul.nav.navbar-inverse
+  %li= link_to 'Home', "/"
   - if app == "live_reader"
+    %li= link_to 'About', page_path('about')
     %li= link_to 'Events', page_path('events')
     %li= link_to 'Writers', page_path('writers')
-    %li= link_to 'About', page_path('about')
-    %li= link_to 'Feedback', page_path('feedback')
+    %li= link_to 'Contact', page_path('contact')
   - else
     %li= link_to 'Stories', writeroom_documents_path
     %li= link_to 'New Story', new_writeroom_document_path
