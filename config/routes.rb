@@ -11,6 +11,4 @@ Lws::Application.routes.draw do
     resources :documents
   end
 
-  resources :events, only: [:index]
-  resources :writers, only: [:index, :show]
 end
