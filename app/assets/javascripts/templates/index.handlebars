@@ -1,0 +1,50 @@
+<div id="document-wrapper" class="span8">
+
+  {{#if selectedDocument}}
+
+    <a href="#index" {{action goToIndex}}>
+      <div id="active-document-view" class="background">
+        <div id="active-tag" class="btn btn-primary"><i class="icon-arrow-left icon-white"></i>View live document</div>
+        <h1>  {{{ activeDocument.title }}} </h1>
+      </div>
+    </a>.
+    <div id="selected-document-view">
+      <a href="#back" {{action goToIndex}} id="active-tag" class="btn btn-primary"><i class="icon-arrow-left icon-white"></i>View live document</a>
+      <h1> {{{ selectedDocument.title }}} </h1>
+      <div id="active-document-body">
+        {{{ selectedDocument.body }}}
+      </div>
+    </div>
+
+  {{else}}
+
+    <div id="active-document-view">
+      <div id="active-tag" class="btn btn-primary disabled">Live</div>
+      <h1> {{{ activeDocument.title }}} </h1>
+
+      <div id="active-document-body">
+        {{{ activeDocument.body }}}
+      </div>
+    </div>
+
+  {{/if}}
+</div>
+
+<div id="sidebar" class="span4">
+  <a href="/feedback" id="request-button" class="btn btn-success"> Make a request </a>
+  <div id="document-list">
+    <div id="document-search">
+      {{view Ember.TextField valueBinding="controller.searchTerm" placeholder="Search all documents" classNames="span3 input-medium search-query"}}
+    </div>
+    <ul>
+      {{#if controller.searchTerm}}
+        <a {{action clearSearchTerm target="controller"}}> <li id="view-all"> <<  View all documents </li> </a>
+      {{/if}}
+      {{#each document in controller}}
+        {{#if document.isVisible}}
+           <a {{action goToDocument document}}><li {{bindAttr class="document.selected"}}>  {{document.title}} </li> </a>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
