@@ -1,3 +1,4 @@
 LiveReader.IndexRoute = Ember.Route.extend
-  model: ->
-    this.store.findAll('document')
+  redirect: () ->
+    @transitionTo 'documents.index'
+ 
