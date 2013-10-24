@@ -1,17 +1,20 @@
 - content_for :page_title, "Home"
 .row
-  #intro.span12
+  .well
+    .row-fluid
+      #intro.span12
+        .span3
+          =image_tag "logo_on_grey.jpg"
 
-    #intro-copy
-      %p
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      %p
-        This website was originally built to raise money for
-        <a href="http://www.arvonfoundation.org/">Arvon</a>
-        You can see the documents I wrote for that below.
+        #intro-copy.span9
+          %p
+            What happens when you take the process of writing and turn it into a performance?
 
-      %p.call-to-action
-        = link_to "What do you think?", page_path('feedback'), class: 'btn btn-success'
+          %p
+            When writers react, compose and immerse themselves in public places, bringing it alive with the real-time broadcast of their work for all to see?
+
+          %p
+            We’re about to find out.
 .row
   #viewer.span12
 
