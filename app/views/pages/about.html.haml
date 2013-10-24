@@ -1,4 +1,17 @@
 - content_for :page_title, "About"
+- content_for :extra_body_classes, "about"
+- content_for :sidebar do
+  .well
+
+    =image_tag "logo_on_grey.jpg"
+    .subscribe{ style: "margin-top: 25px" }
+      %form#subscribe-form{ action: "/subscribe", method: "post" }
+
+        .row-fluid{style: "text-align: center"}
+          %label{ for: "email" }Keep me informed:
+          .input-append
+            %input#email.span9{ type: "text", name: "email", placeholder:"me@example.org" }
+            %button.btn{ type: "submit"}Go!
 %p
   The Live Writing Series is devised and produced by Gemma Seltzer and David Varela. Both of us shared an enthusiasm for writing in public and improvising with an audience, and we realised that other writers might enjoy the same thrill given the chance.
 

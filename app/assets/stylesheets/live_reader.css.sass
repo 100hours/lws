@@ -1,32 +1,41 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 @import bourbon
-@import bootstrap_and_overrides
+// fonts
+@import url(http://fonts.googleapis.com/css?family=Raleway:300,400)
+@import url(http://fonts.googleapis.com/css?family=Varela)
+
+//////////////////////////////////////////////////////////////////////////////
+
 @import _base
+@import bootstrap_and_overrides
 @import intro
 @import document_viewer
 
 ///////////////////////////////////////////////////////////////////////////////
 
+
 body
   font-family: $sans
 
-.static-content
-  +border-radius(4px)
-  border: thin solid #ccc
-  background: white
-  padding: 0px 20px 20px 20px
-  font-size: 18px
-  font-family: $serif
-  line-height: 32px
+.brand, h1, h2, h3, .nav, .btn
+  font-family: $headerfont
 
-  h1
-    margin-bottom: 20px
-  h2
-    margin: 20px 0
-  p
-    line-height: 30px
+.nav, .btn
+  font-weight: 400
 
-  form
-    margin-top: 30px
+h1, h2, h3
+  font-weight: 300
 
+h1
+  text-transform: uppercase
+  font-size: 50px
+
+.row-fluid.spaced
+  margin-bottom: 20px
+
+img.pull-down
+  margin-top: 18px
+
+a, .writers h3, .events h3
+  color: rgb(50,100,160)

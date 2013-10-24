@@ -10,14 +10,19 @@
     = stylesheet_link_tag app, media: "all"
     = csrf_meta_tags
   %body{ class: body_class }
-    %header.navbar.navbar-fixed-top{ class: (app == "live_reader" ? "navbar-inverse" : "")}
+    %header.navbar.navbar-fixed-top{ class: (app == "live_reader" ? "navbar-inverse" : "navbar-default")}
       %nav.navbar-inner
         .container
           = render partial: 'navigation', locals: { app: app }
-    #main{:role => "main"}
-      .container
-        = render 'flashes'
-        .content
-          = yield
+    .container
+      #main{:role => "main"}
+        .row
+          = render 'flashes'
+        .row-fluid
+          - if content_for?(:sidebar)
+            .sidebar.span3
+              = yield :sidebar
+          .main{ class: (content_for?(:sidebar) ? "span9" : "span12") }
+            = yield
           %footer
     = render partial: 'javascript', locals: { app: app }

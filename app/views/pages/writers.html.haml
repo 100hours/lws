@@ -1,12 +1,13 @@
+- content_for :extra_body_classes, "writers"
 - content_for :page_title, "Writers"
 - content_for :sidebar do
   = render partial: "partials/writers_sidebar"
 
-.row-fluid.spaced#first{ style: "margin-top: 20px" }
+.row-fluid.spaced#first{ style: "margin-top: 8px" }
   .span2
     %img.pull-down.img-polaroid{ src: image_path("writers/david_varela.jpg")}
   .span10
-    %h2 David Varela
+    %h3 David Varela
 
     David is a writer and producer working in a huge range of media, including theatre, radio, film, games and interactive drama. He started writing live online in 2012, when he spent 100 hours taking commissions in Ted Hughes’ old house for a fundraising project called
     %em 100 Hours of Solitude.
@@ -17,7 +18,7 @@
   .span2
     %img.pull-down.img-polaroid{ src: image_path("writers/gemma_seltzer.jpg") }
   .span10
-    %h2 Gemma Seltzer
+    %h3 Gemma Seltzer
 
     Gemma is a writer working online, live and in print. Her digital writing projects include
     %em The View from Here
@@ -34,7 +35,7 @@
   .span2
     %img.pull-down.img-polaroid{ src: image_path("writers/sarah_butler.jpg")}
   .span10
-    %h2 Sarah Butler
+    %h3 Sarah Butler
 
     Sarah is an author and literary consultant. Her debut novel
     %em Ten Things I’ve Learnt About Love
@@ -45,7 +46,7 @@
   .span2
     %img.pull-down.img-polaroid{ src: image_path("writers/jacob_sam-la_rose.jpg") }
   .span10
-    %h2 Jacob Sam-La Rose
+    %h3 Jacob Sam-La Rose
 
     Jacob is a published poet; he devises and facilitates projects for schools and other institutions, emerging poets, teachers, literature professionals and other creatives; and he’s a geek for web technology and productivity.
     %a{href:"http://www.jsamlarose.com"}www.jsamlarose.com
@@ -54,7 +55,7 @@
   .span2
     %img.pull-down.img-polaroid{ src: image_path("writers/molly_naylor.jpg") }
   .span10
-    %h2 Molly Naylor
+    %h3 Molly Naylor
 
     Molly is a poet and scriptwriter whose first solo show,
     %em Whenever I Get Blown Up I Think Of You
