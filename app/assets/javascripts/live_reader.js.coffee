@@ -10,5 +10,3 @@
 
 @LiveReader = Ember.Application.create
   rootElement: "#viewer"
-# for more details see: http://emberjs.com/guides/application/
-#= require_tree .
