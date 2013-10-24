@@ -35,7 +35,9 @@ class Writeroom::DocumentsController < WriteroomController
   def update
     @document = Document.find(params[:id])
 
-    @document.update(document_params)
+    if @document.update(document_params)
+      Pusher.trigger(pusher_channel, 'update', @document.to_pusher)
+    end
     respond_with @document
   end
 
@@ -56,4 +58,9 @@ class Writeroom::DocumentsController < WriteroomController
       .require(:document)
       .permit(:title, :body, :requester)
   end
+
+  def pusher_channel
+    "#{Rails.env}_main_channel"
+  end
+  
 end
