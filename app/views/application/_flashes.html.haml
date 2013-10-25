@@ -1,4 +1,5 @@
 #flash
   - flash.each do |key, value|
-    %div{ id: "flash_#{ key }" }
+    %div.alert{ id: "flash_#{ key }", class: (key.to_s == "notice" ? "alert-info" : "") }
+      %button.close{ type: "button", :"data-dismiss" => "alert" } &times;
       = value
