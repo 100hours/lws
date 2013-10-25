@@ -1,0 +1,20 @@
+LiveReader.DocumentsRoute = Ember.Route.extend
+  model: ->
+    this.store.findAll('document')
+  activate: ->
+    # Setup Pusher
+    pusher = new Pusher('8146487894a3cc81758c')
+    @set('pusher', pusher)
+    channel = pusher.subscribe('<%= Rails.env %>_main_channel')
+    channel.bind 'update', (payload) =>
+      # TODO: Clean up this big ugly chunk of procedural code
+      payload.updated_at = new Date(payload.updated_at)
+      doc = @model().find((item) => item.get('id') == payload.id)
+      # debugger
+      if doc
+        doc.setProperties
+          title: payload.title
+          body: payload.body
+          updated_at: payload.updated_at
+      else
+        doc = LiveReader.Document.createRecord(payload)

@@ -1,4 +1,5 @@
 LiveReader.DocumentsShowController = Ember.ObjectController.extend
+  needs: "documents"
   activeDocument: (->
     @controllerFor('documents').get('firstObject')
-  ).property('firstObject')
+  ).property('controllers.documents.firstObject')
