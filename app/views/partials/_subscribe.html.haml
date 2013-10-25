@@ -2,7 +2,7 @@
 
   =image_tag "logo_on_grey.jpg"
   .subscribe{ style: "margin-top: 25px" }
-    = form_for Subscription.new do |f|
+    = form_for Subscription.new, url: subscription_path do |f|
       .row-fluid{style: "text-align: center"}
         = f.label :email, "Keep me informed:"
         .input-append
