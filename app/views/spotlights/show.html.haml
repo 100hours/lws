@@ -1,5 +1,5 @@
 .container
   %h1
-    = @document.title.html_safe
+    = @document.try(:title).try(:html_safe)
   .text
-    = @document.body.html_safe
+    = @document.try(:body).try(:html_safe)
