@@ -8,7 +8,7 @@
 
   .row
     .span9
-      = f.text_field :title, class: "span9",  placeholder: "Untitled - story title goes here"
+      = f.text_field :title, class: "span12",  placeholder: "Untitled - story title goes here"
     .span3
       - unless @document.new_record?
         #connection-status.label
@@ -18,7 +18,13 @@
   .row{ style: "margin-top: 20px" }
     .span12
       - if @document.new_record?
-        = f.submit class: "btn"
+        .span9
+          .input-prepend.span9
+            %span.add-on
+              %i.icon-envelope
+            = f.text_field :requester, class: "span12", placeholder: "requester email address"
+          .span3.text-right
+            = f.submit class: "btn"
       - else
         = f.text_area :body, id: 'redactor'
 

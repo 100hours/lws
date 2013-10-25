@@ -32,4 +32,5 @@ Lws::Application.configure do
   config.action_mailer.default_url_options = { host: 'lws.local' }
 
   config.ember.variant = :development
+
 end

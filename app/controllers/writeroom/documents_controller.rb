@@ -54,6 +54,6 @@ class Writeroom::DocumentsController < WriteroomController
   def document_params
     params
       .require(:document)
-      .permit(:title, :body)
+      .permit(:title, :body, :requester)
   end
 end
