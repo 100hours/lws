@@ -8,7 +8,6 @@ class Document < ActiveRecord::Base
   end
 
   def notify_requester
-    return true unless ENV['DELIVER_NOTIFICATIONS'] == "YES"
     DocumentNotifier.writing_started_on(self).deliver unless self.requester.blank?
   end
   def to_pusher
