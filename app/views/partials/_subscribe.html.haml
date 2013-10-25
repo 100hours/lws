@@ -1,0 +1,10 @@
+.well
+
+  =image_tag "logo_on_grey.jpg"
+  .subscribe{ style: "margin-top: 25px" }
+    = form_for Subscription.new do |f|
+      .row-fluid{style: "text-align: center"}
+        = f.label :email, "Keep me informed:"
+        .input-append
+          = f.text_field :email, placeholder: "me@example.org", class: "span9"
+          = f.button "Go!", class: "btn"

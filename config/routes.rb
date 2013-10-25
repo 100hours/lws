@@ -6,6 +6,7 @@ Lws::Application.routes.draw do
   end
 
   root to: "high_voltage/pages#show", id: "home"
+  resources :subscriptions, only: [:create]
   namespace :writeroom do
     match "/", to: "dashboard#show", as: "writeroom", via: :get
     resources :documents
