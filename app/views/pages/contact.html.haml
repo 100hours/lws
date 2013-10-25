@@ -7,10 +7,13 @@
 .row-fluid.pull-down
   %p
     Want to get in touch?
-    %a{ href: "mailto:david@davidvarela.com" }Send us a mail
-    and we’ll get right back to you.
+    %br
+    Use the form below to send us a message and we’ll get right back to you.
 
   %p
     Alternatively, you can
-    %a{ href: "javascript:$('input#email').focus()" }sign up to our mailing list
+    %a{ href: "javascript:$('input#subscription_email').focus()" }sign up to our mailing list
     for regular updates on the whole Live Writing Series.
+
+    - @feedback = Feedback.new
+    = render partial: "feedbacks/form"
