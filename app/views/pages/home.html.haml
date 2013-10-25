@@ -3,10 +3,16 @@
   .well
     .row-fluid
       #intro.span12
-        .span3
-          =image_tag "logo_on_grey.jpg"
+        .row-fluid
+          #intro-logo.span6
+            =image_tag "logo_on_grey.jpg", class: "pull-left"
+          #intro-video.span6{ style: "margin-left: 0px" }
+            %iframe{src:"//www.ustream.tv/embed/12812910?wmode=direct&autoplay=false", style:"border: 0 none transparent;", frameborder:"no", width:"480", height:"302"}
+            %br
+            %a{ href:"http://www.ustream.tv/", style:"padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;", target:"_blank"}
+              Live streaming video by Ustream
 
-        #intro-copy.span9
+        .row-fluid.hidden
           %p
             What happens when you take the process of writing and turn it into a performance?
 
