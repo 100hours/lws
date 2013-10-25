@@ -2,11 +2,31 @@
 #= require jquery_ujs
 #= require jquery.browser
 #= require pusher
+#= require scroll
 #= require_self
+
+split = (text) ->
+  splitText = text.split(/<[^>]+>|<\/[^>]+>/).filter (snippet) ->
+    snippet != "" && snippet[0] != "<"
+  return splitText
 
 pusher = new Pusher('8146487894a3cc81758c')
 channel = pusher.subscribe('<%= Rails.env %>_main_channel')
+
 channel.bind 'update', (payload) =>
-  console.log "received update"
+  oldText = split $(".text").html().trim()
   $("h1").html(payload.title)
   $(".text").html(payload.body)
+  newText = split $(".text").html().trim()
+  
+  try
+    for snippet, i in newText
+      if newText[i] != oldText[i]
+        parsedSnippet = $("<p>#{snippet}</p>").text()
+        el = $(":contains(#{parsedSnippet})").last()
+        y = el.position()['top'] - 100
+        $.scrollTo(y)
+
+
+
+
