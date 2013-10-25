@@ -1,7 +1,7 @@
 class Document < ActiveRecord::Base
   belongs_to :writer
 
-  after_create :notify_requester
+  after_commit :notify_requester
 
   def word_count
     body.blank? ? 0 : body.split.size
