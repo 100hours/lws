@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title
+      = page_title
+    %meta{ charset: "utf-8" }
+    %meta{ name: "ROBOTS", content: "NOODP" }
+    %meta{ content: (content_for?(:page_description) ? yield(:page_description) : "Live Writing Series"), name: "description"}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    = stylesheet_link_tag "spotlight", media: "all"
+    = csrf_meta_tags
+  %body{ class: body_class }
+    
+    .container
+      #main{:role => "main"}
+        = yield
+    = javascript_include_tag 'spotlight'

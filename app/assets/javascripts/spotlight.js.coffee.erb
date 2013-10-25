@@ -1,0 +1,12 @@
+#= require jquery
+#= require jquery_ujs
+#= require jquery.browser
+#= require pusher
+#= require_self
+
+pusher = new Pusher('8146487894a3cc81758c')
+channel = pusher.subscribe('<%= Rails.env %>_main_channel')
+channel.bind 'update', (payload) =>
+  console.log "received update"
+  $("h1").html(payload.title)
+  $(".text").html(payload.body)
