@@ -12,4 +12,6 @@ Lws::Application.routes.draw do
     resources :documents
   end
 
+  resource :spotlight
+
 end
