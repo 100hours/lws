@@ -33,4 +33,6 @@ Lws::Application.configure do
 
   config.ember.variant = :development
 
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+
 end
