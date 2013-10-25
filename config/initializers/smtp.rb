@@ -1,6 +1,6 @@
 # Email delivery defaults.
 if Rails.env.staging? || Rails.env.production?
-  SMTP_SETTINGS = {
+  ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
     :authentication => :plain,
@@ -10,4 +10,3 @@ if Rails.env.staging? || Rails.env.production?
     :enable_starttls_auto => true
   }
 end
-ActionMailer::Base.delivery_method = :smtp

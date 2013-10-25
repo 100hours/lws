@@ -1,5 +1,5 @@
-Mail.register_interceptor RecipientInterceptor.new(ENV['EMAIL_RECIPIENTS'])
-require Rails.root.join('config/initializers/smtp')
+#Mail.register_interceptor RecipientInterceptor.new(ENV['EMAIL_RECIPIENTS'])
+#require Rails.root.join('config/initializers/smtp')
 Lws::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -68,7 +68,7 @@ Lws::Application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = SMTP_SETTINGS
+  #config.action_mailer.smtp_settings = SMTP_SETTINGS
 
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
@@ -84,7 +84,7 @@ Lws::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = { host: 'staging.lws.com' }
+  config.action_mailer.default_url_options = { host: 'lws-staging.herokuapp.com' }
 
   config.ember.variant = :production
 end
