@@ -1,0 +1,11 @@
+- content_for :page_title, "Writings"
+- content_for :extra_body_classes, "writing"
+- content_for :sidebar do
+  .well
+    = image_tag "logo_on_grey.jpg"
+  = render partial: "partials/subscribe"
+
+%h3{ style: "margin-top: 18px" }= @document.try(:title).try(:html_safe)
+
+%p
+  = @document.try(:body).try(:html_safe)
