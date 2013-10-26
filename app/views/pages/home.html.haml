@@ -1,32 +1,6 @@
 - content_for :page_title, "Home"
-.row
-  .well
-    .row-fluid
-      #intro.span12
-        .row-fluid
-          #intro-logo.span4
-            .row-fluid.spaced
-              =image_tag "logo_on_grey.jpg", class: "pull-left", style: "width: 180px"
-            .row-fluid
-              %p
-                The Live Writing Series puts writers in public places and gives you the chance to watch them write live, in person or online.
-              %p
-                David Varela is writing at the National Portrait Gallery, Friday 5-10pm. Want him to write something for you?
-          #intro-video.span6.offset1
-            %iframe{src:"//www.ustream.tv/embed/12812910?wmode=direct&autoplay=false", style:"border: 0 none transparent;", frameborder:"no", width:"480", height:"302"}
-            %br
-            %a.hidden{ href:"http://www.ustream.tv/", style:"padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;", target:"_blank"}
-              Live streaming video by Ustream
 
-        .row-fluid.hidden
-          %p
-            What happens when you take the process of writing and turn it into a performance?
-
-          %p
-            When writers react, compose and immerse themselves in public places, bringing it alive with the real-time broadcast of their work for all to see?
-
-          %p
-            We’re about to find out.
-.row
-  #viewer.span12
-
+- if ENV['ON_AIR'] == 'YES'
+  = render partial: "pages/on_air"
+- else
+  = render partial: "pages/static"
