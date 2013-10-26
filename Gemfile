@@ -25,6 +25,7 @@ gem 'ember-source'
 gem 'haml-rails'
 
 gem 'bootstrap-sass'
+gem 'redcarpet'
 
 gem 'pusher'
 
