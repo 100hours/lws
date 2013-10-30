@@ -1,0 +1,34 @@
+- content_for page_title: "Selection of the week"
+- content_for :sidebar do
+  .well
+    = image_tag 'logo_on_grey.jpg'
+    = render partial: "partials/subscribe"
+
+%h3 SELECTION OF THE WEEK
+
+:markdown
+  _I’ve edited a poem that I composed during my live writing session. It’s a great example of different ideas colliding in a way I could never have predicted: Lydia Nicholas asked me for a love poem about a futurist while I was standing in a gallery surrounded by Elizabethan art. The result is a Shakespearean sonnet about graphene._
+
+  Our love was first discovered by mistake.  
+  A miracle, they said, like naught on Earth.  
+  A graphene love. But what are we to make  
+  Of this, this latticed accident of birth?  
+
+  It's slippery, all surface and no side.  
+  It transfers heat remarkably in tests  
+  (Though hasn’t yet been practically applied).  
+  It's speculative research at its best.  
+
+  But graphene love's an unremitting matter,  
+  As dangerous to grasp as any blade.  
+  Its edges lacerate and smoothly scatter  
+  All those who aren't miraculously made.  
+
+  We break apart and wonder at the cause.  
+  Our bonds are strong, but deeper are our flaws.  
+
+%p
+  %em
+    You can see the original version
+    = link_to "here", writings_path(2)
+
