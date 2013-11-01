@@ -6,6 +6,7 @@
 #= require ember-data-canary
 #= require bootstrap
 #= require pusher
+#= require diff_match_patch
 #= require_self
 #= require app
 

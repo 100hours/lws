@@ -1,3 +1,5 @@
+require 'diff_match_patch'
+
 class Writeroom::DocumentsController < WriteroomController
 
   respond_to :html
