@@ -27,6 +27,20 @@ channel.bind 'update', (payload) =>
         y = el.position()['top'] - 100
         $.scrollTo(y)
 
-
-
-
+channel.bind 'patch', (payload) =>
+  $.ajax "/api/v1/documents/" + payload.id,
+    type: "GET"
+    dataType: "json"
+    success: (data) ->
+      document = data.document
+      oldText = split $(".text").html().trim()
+      $("h1").html(document.title)
+      $(".text").html(document.body)
+      newText = split $(".text").html().trim()
+      try
+        for snippet, i in newText
+          if newText[i] != oldText[i]
+            parsedSnippet = $("<p>#{snippet}</p>").text()
+            el = $(":contains(#{parsedSnippet})").last()
+            y = el.position()['top'] - 100
+            $.scrollTo(y)
