@@ -9,5 +9,4 @@ LiveReader.DocumentsRoute = Ember.Route.extend
     channel = pusher.subscribe('<%= Rails.env %>_main_channel')
 
     channel.bind 'patch', (payload) =>
-      payload.updated_at = new Date(payload.updated_at)
       doc = @model().find((item) => item.get('id') == payload.id)
