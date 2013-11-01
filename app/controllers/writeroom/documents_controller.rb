@@ -4,7 +4,7 @@ class Writeroom::DocumentsController < WriteroomController
   respond_to :json, only: [:update]
 
   def index
-    @documents = Document.all
+    @documents = Document.where(archived: false)
 
     respond_with @documents
   end

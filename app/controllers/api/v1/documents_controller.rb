@@ -2,7 +2,7 @@ class Api::V1::DocumentsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Document.all
+    respond_with Document.where(archived: false)
   end
 
   def show
