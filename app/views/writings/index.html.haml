@@ -6,10 +6,9 @@
     = render partial: "partials/subscribe"
 
 - @writers.each do |writer|
-  - writer.documents.each do |document|
+  - if writer.documents.any?
     %h3= writer_event_title(writer)
-
-    %ul
-      - if writer.documents.any?
+    - writer.documents.each do |document|
+      %ul
         %li
-          = link_to document.title, writing_path(document)
+            = link_to document.title, writing_path(document)
