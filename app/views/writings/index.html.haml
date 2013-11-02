@@ -5,9 +5,11 @@
     = image_tag "logo_on_grey.jpg"
     = render partial: "partials/subscribe"
 
-%h3{ style: "margin-top: 18px"} David Varela, National Portrait Gallery
+- @writers.each do |writer|
+  - writer.documents.each do |document|
+    %h3= writer_event_title(writer)
 
-%ul
-- @documents.each do |document|
-  %li
-    = link_to document.title, writing_path(document)
+    %ul
+      - if writer.documents.any?
+        %li
+          = link_to document.title, writing_path(document)

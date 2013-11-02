@@ -7,4 +7,8 @@ module ApplicationHelper
   def active_on(title)
     "active" if content_for(:page_title) == title
   end
+
+  def writer_event_title(writer)
+    writer.name + (writer.event ? ", #{writer.event.name}" : "")
+  end
 end

@@ -1,6 +1,6 @@
 class WritingsController < ApplicationController
   def index
-    @documents = Document.where(archived: true)
+    @writers = Writer.includes(:documents).all
   end
 
   def show
