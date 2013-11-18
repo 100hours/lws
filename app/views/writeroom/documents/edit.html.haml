@@ -2,4 +2,4 @@
 
 - content_for :javascript do
   :javascript
-    WriteRoom.require('documents/edit', {});
+    WriteRoom.require('documents/edit', #{@document.id});

@@ -4,6 +4,11 @@
 #= require bootstrap
 #= require_self
 #= require redactor
+#= require handlebars
+#= require ember
+#= require ember-data
+#= require firebase
+#= require emberfire
 
 class Editor
   dirty: false
@@ -11,14 +16,32 @@ class Editor
     body: false
     title: false
 
-  constructor: ->
+  constructor: (documentId) ->
     console.log("Initialising editor")
+    @documentId = documentId
     @takeSnapshot()
+    @setupFirebase()
 
   takeSnapshot: ->
     console.log("Taking snapshot of current text")
     @snapshot.body = @currentBody()
     @snapshot.title = @currentTitle()
+
+  setupFirebase: (documentId) ->
+    @db = new Firebase("https://lws.firebaseio.com")
+    @db.once 'value', (snapshot) =>
+      snapshot.forEach (child) =>
+        @doc = child.ref() if child.val().id == @documentId
+      unless @doc
+        @doc = @db.push
+          id: @documentId
+          isVisible: true
+          body: @currentBody()
+          title: @currentTitle()
+      $(".redactor_editor").on "keyup", (element) => 
+        @doc.child('body').set @currentBody()
+        @doc.child('title').set @currentTitle()
+        console.log @currentBody()
 
   currentBody: ->
     $('#redactor').getCode()
@@ -74,15 +97,13 @@ WriteRoom.register = (label, callback) ->
 WriteRoom.require = (label, data) ->
   WriteRoom.fragments[label].call(window,data)
 
-WriteRoom.register 'documents/edit', (data) ->
+WriteRoom.register 'documents/edit', (documentId) ->
   console.log("Attaching redactor to view")
   $('#redactor').redactor()
   console.log("Initialising Editor instance")
-
-  editor = new Editor
-
+  editor = new Editor(documentId)
   editor.updateConnectionStatus("Ready!", "info")
 
   setInterval ->
     editor.update()
-  , 500
+  , 5000

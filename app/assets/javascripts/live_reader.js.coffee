@@ -4,8 +4,9 @@
 #= require handlebars
 #= require ember-canary
 #= require ember-data-canary
+#= require firebase
 #= require bootstrap
-#= require pusher
+#= require emberfire
 #= require_self
 #= require app
 
