@@ -3,32 +3,18 @@
     .row-fluid
       #intro.span12
         .row-fluid
-          #intro-logo.span6
-            .row-fluid.spaced
-              =image_tag "logo_on_grey.jpg", class: "pull-left", style: "width: 180px"
-            .row-fluid
-              %p
-                Watch author, poet and footie-fan Joe Dunthorne write live here today!
-
-              %p
-                He’ll be in residence in the Jewish Museum’s
-                %em Four Four Jew
-                exhibition from 11am-5pm,
-                asking for your ideas that he’ll incorporate into new pieces of work.
-              %p
-                If you can't see Joe typing, he's probably just wandering through the
-                exhibition chatting to visitors and collecting stories.
-
-              %p
-                Pop down to the museum to offer your football-related suggestions, or send a request through the website.
-
-              %p
-                Scroll down to watch Joe write, keystroke by keystroke.
-          #intro-video.span6
-            %iframe{src:"//www.ustream.tv/embed/12812910?wmode=direct&autoplay=false", style:"border: 0 none transparent;", frameborder:"no", width:"480", height:"302"}
-            %br
-            %a.hidden{ href:"http://www.ustream.tv/", style:"padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;", target:"_blank"}
-              Live streaming video by Ustream
+          #intro-logo.span3
+            =image_tag "logo_on_grey.jpg", class: "pull-left", style: "width: 180px"
+          #intro-copy.span9
+            %p
+              Jacob Sam-La Rose is writing live today, 11am-4pm, along with brilliant up-and-coming writers the Podium Poets - namely Deanna Rodger, Sara Perry, Rosie Knight and Ben Jacobs.
+            %p
+              Scroll down to see every keystroke as they write!
+          #intro-video.span6.hidden
+            -#%iframe{src:"//www.ustream.tv/embed/12812910?wmode=direct&autoplay=false", style:"border: 0 none transparent;", frameborder:"no", width:"480", height:"302"}
+            -#%br
+            -#%a.hidden{ href:"http://www.ustream.tv/", style:"padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;", target:"_blank"}
+              -#Live streaming video by Ustream
 
         .row-fluid.hidden
           %p
