@@ -1,0 +1,43 @@
+- content_for :page_title, "Interviews : Joe Dunthorne"
+- content_for :extra_body_classes, "interview"
+- content_for :sidebar do
+  .well
+    = image_tag 'logo_on_grey.jpg'
+    = render partial: "partials/subscribe"
+
+.row-fluid
+  %h3{style: "margin-top: 18px" } An Interview with Joe Dunthorne
+
+  %ol.interview
+    %li.question
+      Did you enjoy going behind the scenes at the museum?
+      .answer
+        %p
+          I loved it!
+
+    %li.question
+      What did you find most inspiring?
+      .answer
+        %p
+          I enjoyed snooping around among the roller shelves in the archive. A shelf of ornate spice towers, like looking at the rooftops of Florence. Stacks of old irons, diaries, football programmes. A mannequin. Amy Winehouse’s Grammy. It was an endless source of fascination.
+
+    %li.question
+      How did you feel about writing on camera?
+      .answer
+        %p
+          Unhappy! The trick, when writing, is to forget that you exist which is difficult when you can see your own face projected on a screen.
+
+    %li.question
+      How different was it from a normal writing day for you?
+      .answer
+        %p
+          Very. I normally start a lot earlier and am more likely to be wearing pajamas. Unlike the museum, I do not allow strangers into my home to tell me stories which – I realise – is a real shame. From now on, I shall have an open-door policy at home. It was also great to be surrounded by inspiring material. At home, I am surrounded only by evidence of my own slovenliness.
+
+    %li.question
+      What would you change if you could try it again?
+      .answer
+        %p
+          I would get training, beforehand, as though preparing for a marathon. Writing at speed is something you have to practice and I felt a little unfit.
+
+.row-flow
+  = image_tag "events/jm_joe.jpg", class: "img", style: "margin: 25px;"
