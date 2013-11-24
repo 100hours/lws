@@ -5,6 +5,7 @@
 #= require ember-canary
 #= require ember-data-canary
 #= require bootstrap
+#= require_tree ./vendor
 #= require pusher
 #= require_self
 #= require app
