@@ -1,6 +1,6 @@
 class WritingsController < ApplicationController
   def index
-    @writers = Writer.includes(:documents).all
+    @writers = Writer.order('created_at').includes(:documents).all
   end
 
   def show
