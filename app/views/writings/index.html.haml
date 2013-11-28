@@ -14,5 +14,5 @@
         %li
           = link_to "#{writer.first_name.upcase}'s SELECTED HIGHLIGHT", page_path("selections/#{writer.selection}")
       - writer.documents.each do |document|
-          %li
-            = link_to document.title, writing_path(document)
+        %li
+          = link_to document.title, writing_path(document)
