@@ -1,0 +1,38 @@
+- content_for :page_title, "Gallery"
+- content_for :extra_body_classes, "gallery"
+- content_for :javascript do 
+  :javascript
+    $('.image-gallery').magnificPopup({
+    type: 'image',
+    gallery:{enabled:true},
+    delegate: 'a', // child items selector, by clicking on it popup will open
+    
+    });
+%h1 Photo Gallery
+
+.image-gallery.container
+  .image.span3
+    = link_to image_url("events/jm_joe.jpg"), title: "Lorem ipsum" do
+      = image_tag "events/jm_joe.jpg"
+  .image.span3
+    = link_to image_url("events/ldn_gemma.jpg"), title: "Lorem ipsum dolor" do
+      = image_tag "events/ldn_gemma.jpg"
+  .image.span3
+    = link_to image_url("events/npg_david.jpg"), title: "Lorem ipsum dolor sit" do
+      = image_tag "events/npg_david.jpg"
+  .image.span3
+    = link_to image_url("events/wt_sarah.jpg"), title: "Lorem ipsum" do
+      = image_tag "events/wt_sarah.jpg"
+  .image.span3
+    = link_to image_url("events/ldn_gemma.jpg"), title: "Lorem ipsum" do
+      = image_tag "events/ldn_gemma.jpg"
+  .image.span3
+    = link_to image_url("events/npg_david.jpg"), title: "Lorem ipsum" do
+      = image_tag "events/npg_david.jpg"
+  .image.span3
+    = link_to image_url("events/wt_sarah.jpg"), title: "Lorem ipsum" do
+      = image_tag "events/wt_sarah.jpg"
+  .image.span3
+    = link_to image_url("events/jm_joe.jpg"), title: "Lorem ipsum" do
+      = image_tag "events/jm_joe.jpg"
+
