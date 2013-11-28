@@ -1,5 +1,5 @@
 class Writer < ActiveRecord::Base
-  has_many :documents
+  has_many :documents, -> { order "created_at" }
   has_one :event
 
   def first_name
