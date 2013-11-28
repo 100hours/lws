@@ -6,6 +6,7 @@
     %li{ class: active_on('Events')}= link_to 'Events', page_path('events')
     %li{ class: active_on('Writers')}= link_to 'Writers', page_path('writers')
     %li{ class: active_on('Writings')}= link_to 'Writing', writings_path
+    %li{ class: active_on('Gallery')}= link_to 'Gallery', page_path('gallery')
     %li{ class: active_on('Contact')}= link_to 'Contact', page_path('contact')
   - else
     %li= link_to 'Stories', writeroom_documents_path

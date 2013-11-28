@@ -10,29 +10,10 @@
     });
 %h1 Photo Gallery
 
-.image-gallery.container
-  .image.span3
-    = link_to image_url("events/jm_joe.jpg"), title: "Lorem ipsum" do
-      = image_tag "events/jm_joe.jpg"
-  .image.span3
-    = link_to image_url("events/ldn_gemma.jpg"), title: "Lorem ipsum dolor" do
-      = image_tag "events/ldn_gemma.jpg"
-  .image.span3
-    = link_to image_url("events/npg_david.jpg"), title: "Lorem ipsum dolor sit" do
-      = image_tag "events/npg_david.jpg"
-  .image.span3
-    = link_to image_url("events/wt_sarah.jpg"), title: "Lorem ipsum" do
-      = image_tag "events/wt_sarah.jpg"
-  .image.span3
-    = link_to image_url("events/ldn_gemma.jpg"), title: "Lorem ipsum" do
-      = image_tag "events/ldn_gemma.jpg"
-  .image.span3
-    = link_to image_url("events/npg_david.jpg"), title: "Lorem ipsum" do
-      = image_tag "events/npg_david.jpg"
-  .image.span3
-    = link_to image_url("events/wt_sarah.jpg"), title: "Lorem ipsum" do
-      = image_tag "events/wt_sarah.jpg"
-  .image.span3
-    = link_to image_url("events/jm_joe.jpg"), title: "Lorem ipsum" do
-      = image_tag "events/jm_joe.jpg"
 
+
+.image-gallery.container
+  - (1..34).each do |n|
+    .image.span3
+      = link_to image_url("http://s3.amazonaws.com/HundredHours/gallery_images/#{n}.JPG") do
+        = image_tag "http://s3.amazonaws.com/HundredHours/gallery_thumbnails/#{n}.JPG"
