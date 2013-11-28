@@ -7,7 +7,7 @@ class Writer < ActiveRecord::Base
   end
 
   def has_selection?
-    selection_week
+    self.selection.present?
   end
 
 
