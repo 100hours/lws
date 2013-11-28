@@ -8,7 +8,11 @@
 - @writers.each do |writer|
   - if writer.documents.any?
     %h3= writer_event_title(writer)
+
     - writer.documents.each do |document|
       %ul
+        - if writer.has_selection?
+          %li
+            = link_to "#{writer.first_name.upcase}'s SELECTED HIGHLIGHT", page_path("selections/#{writer.selection}")
         %li
           = link_to document.title, writing_path(document)
