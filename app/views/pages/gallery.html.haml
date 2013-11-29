@@ -10,10 +10,8 @@
     });
 %h1 Photo Gallery
 
-
-
 .image-gallery.container
-  - (1..34).each do |n|
+  - gallery_images.each do |n, caption|
     .image.span3
-      = link_to image_url("http://s3.amazonaws.com/HundredHours/gallery_images/#{n}.JPG") do
-        = image_tag "http://s3.amazonaws.com/HundredHours/gallery_thumbnails/#{n}.JPG"
+      = link_to image_url("http://s3.amazonaws.com/HundredHours/gallery_images/#{n}.JPG"), title: caption do
+        = image_tag "http://s3.amazonaws.com/HundredHours/gallery_thumbnails/#{n}.JPG", alt: caption
