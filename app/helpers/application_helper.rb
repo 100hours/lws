@@ -47,7 +47,10 @@ module ApplicationHelper
       31 => "Multiple platforms in use",
       32 => "Poetry for inspiration at the Deptford Lounge",
       33 => "Jacon takes to the keyboard",
-      34 => "You just stare at the screen until drops of blood form on your forehead"
+      34 => "You just stare at the screen until drops of blood form on your forehead",
+      35 => "Presenting Molly Naylor",
+      36 => "Molly in full flow",
+      37 => "Having a laugh at the Roundhouse"
     }
   end
 end
