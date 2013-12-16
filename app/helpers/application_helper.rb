@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def gallery_images
-    { 
+    {
       1 => "Sarah concentrating in Woolfson and Tay",
       2 => "Sarah's words projected on the blinds",
       3 => "Sarah resists the cake and focuses on writing",
@@ -50,7 +50,14 @@ module ApplicationHelper
       34 => "You just stare at the screen until drops of blood form on your forehead",
       35 => "Presenting Molly Naylor",
       36 => "Molly in full flow",
-      37 => "Having a laugh at the Roundhouse"
+      37 => "Having a laugh at the Roundhouse",
+      38 => "Writer needed",
+      39 => "Daljit warms up",
+      40 => "A spot of planning",
+      41 => "Crowd commissions",
+      42 => "Not a proposal, but a request is almost as good",
+      43 => "Showing off the requests",
+      44 => "The best from the Live Writing Series"
     }
   end
 end
