@@ -36,7 +36,8 @@ class Writeroom::DocumentsController < WriteroomController
     @document = Document.find(params[:id])
 
     if @document.update(document_params)
-      Pusher.trigger(pusher_channel, 'update', @document.to_pusher)
+      Pusher.trigger(pusher_channel, 'patch', 
+                     { id:         @document.id.to_s })
     end
     respond_with @document
   end
